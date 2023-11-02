@@ -35,7 +35,13 @@ const App = () => {
 				<div className='loading' />
 			) : (
 				<>
-					<h2 className='title'>{staticData.HeaderTitle}</h2>
+					<h2 className='title'>
+						{data && data.length ? (
+							staticData.HeaderTitle
+						) : (
+							<h1>{staticData.HeaderTitleNoTourLeft}</h1>
+						)}
+					</h2>
 					<div className='title-underline' />
 					{data && data.length ? (
 						<Tours
@@ -44,7 +50,7 @@ const App = () => {
 						/>
 					) : (
 						<button
-							className='btn'
+							className='btn btn-block'
 							onClick={getData}>
 							Refresh
 						</button>

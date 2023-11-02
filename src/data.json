@@ -1,6 +1,7 @@
 {
 	"siteTitle": "Tours",
 	"HeaderTitle": "Our Tours",
+	"HeaderTitleNoTourLeft": "No tour has been left",
 	"Tours": {
 		"More": "Read More",
 		"Less": "Show less",
