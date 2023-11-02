@@ -1,14 +1,14 @@
 import React from 'react';
 import Tour from './Tour';
 
-const Tours = ({ toursData, handletourRemoverButton }) => {
+const Tours = ({ toursData, handleTourRemoverButton }) => {
 	return (
 		<div className='tours'>
 			{toursData.map((item) => (
 				<Tour
 					key={item.id}
 					{...item}
-					handletourRemoverButton={handletourRemoverButton}
+					handleTourRemoverButton={handleTourRemoverButton}
 				/>
 			))}
 		</div>

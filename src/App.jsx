@@ -9,18 +9,20 @@ const App = () => {
 	const [error, setError] = useState(null);
 	const loadData = async () => {
 		setLoading(true);
-		const result = await fetchData();
-		console.log('hello');
-		setToursData(result);
-		setLoading(false);
+		try {
+			const result = await fetchData();
+			console.log('hello');
+			setToursData(result);
+			setLoading(false);
+		} catch (err) {
+			setError(err.toString());
+			setLoading(false);
+		}
 	};
 	useEffect(() => {
 		loadData();
 	}, []);
-	useEffect(() => {
-		// console.log(toursData);
-	}, [toursData]);
-	const handletourRemoverButton = (id) => {
+	const handleTourRemoverButton = (id) => {
 		const newTourData = toursData.filter((tour) => tour.id !== id);
 		setToursData(newTourData);
 	};
@@ -36,7 +38,7 @@ const App = () => {
 			{toursData && (
 				<Tours
 					toursData={toursData}
-					handletourRemoverButton={handletourRemoverButton}
+					handleTourRemoverButton={handleTourRemoverButton}
 				/>
 			)}
 			{toursData && toursData.length ? (
@@ -48,6 +50,7 @@ const App = () => {
 					{staticData.Refresh}
 				</button>
 			)}
+			{error && <p className='alert'> {error.message}</p>}
 		</main>
 	);
 };
