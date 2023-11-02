@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import staticData from '../data.json';
 const Tour = ({ id, name, info, image, price, handleDeleteButton }) => {
 	const [showMore, setShowMore] = useState(false);
-
+	console.log(info.substring(0, 10));
 	return (
 		<article className='single-tour'>
 			<section>
@@ -15,8 +15,10 @@ const Tour = ({ id, name, info, image, price, handleDeleteButton }) => {
 			</section>
 			<section className='tour-info'>
 				<h5>{name}</h5>
-				<p>{info}</p>
-				<span></span>
+				<p>{showMore ? info : `${info.substring(0, 200)}...`}</p>
+				<span onClick={() => setShowMore(!showMore)}>
+					{!showMore ? staticData.Tours.More : staticData.Tours.Less}
+				</span>
 			</section>
 			<section>
 				<button

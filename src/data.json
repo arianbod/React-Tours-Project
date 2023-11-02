@@ -3,6 +3,7 @@
 	"HeaderTitle": "Our Tours",
 	"Tours": {
 		"More": "Read More",
+		"Less": "Show less",
 		"Button": "Not Interested"
 	}
 }
