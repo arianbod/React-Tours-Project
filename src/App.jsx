@@ -49,7 +49,7 @@ const App = () => {
 					{staticData.Refresh}
 				</button>
 			)}
-			{error && <p className='alert'> {error.message}</p>}
+			{error && <p className='alert'> {error}</p>}
 		</main>
 	);
 };
