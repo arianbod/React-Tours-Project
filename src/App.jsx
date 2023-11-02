@@ -11,7 +11,6 @@ const App = () => {
 		setLoading(true);
 		try {
 			const result = await fetchData();
-			console.log('hello');
 			setToursData(result);
 			setLoading(false);
 		} catch (err) {
